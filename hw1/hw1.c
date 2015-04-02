@@ -91,16 +91,15 @@ int main() {
     AD1CHSbits.CH0SA = 0;       // Channel 0 positive input is AN0 (0)
     AD1CON1bits.ADON = 1;       // ADC module is operating (1)
 
-
-		// reset CP0 count to 0 before entering infinite while loop
+    // reset CP0 count to 0 before entering infinite while loop
     _CP0_SET_COUNT(0);
 
     while (1) {
         //Toggle LED1 every 1/2 second
-				if (_CP0_GET_COUNT() > 10000000) {
-						      LATBINV = 0x80;
-						      _CP0_SET_COUNT(0);
-				}
+        if (_CP0_GET_COUNT() > 10000000) {
+            LATBINV = 0x80;
+            _CP0_SET_COUNT(0);
+        }
 
         //When USER is pushed, toggle LED1 as fast as possible
         if (!PORTBbits.RB13) {
