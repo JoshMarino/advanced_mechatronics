@@ -1,5 +1,5 @@
 /* 
- * File:   newmain.c
+ * File:   hw1.c
  * Author: josh
  *
  * Created on March 31, 2015, 10:10 PM
@@ -10,6 +10,7 @@
 
 #include <xc.h>          // processor SFR definitions
 #include <sys/attribs.h> // __ISR macro
+
 
 // DEVCFGs here - Standalone Mode
 #pragma config DEBUG = OFF          // Background Debugger disabled
@@ -23,15 +24,16 @@
 #pragma config BWP = OFF            // Boot write protect: OFF
 #pragma config ICESEL = ICS_PGx1    // ICE pins configured on PGx1, Boot write protect OFF.
 #pragma config FSOSCEN = OFF        // Disable second osc to get pins back
-//#pragma config FSRSSEL = PRIORITY_7 // Shadow Register Set for interrupt priority 7
 
 
+// Helper function prototype
 int readADC(void);
 
 
+// Main function
 int main() {
 
-    // Startup
+    /* --------------------------------------------- Startup -------------------------------------------- */
     __builtin_disable_interrupts();
 
     // set the CP0 CONFIG register to indicate that
@@ -56,17 +58,17 @@ int main() {
 
 
 
-    // set up USER pin (B13) as digital input
+    /* ---------------------------- set up USER pin (B13) as digital input ------------------------------ */
     ANSELBbits.ANSB13 = 0;      // 0 for digital, 1 for analog
     TRISBbits.TRISB13 = 1;      // 0 is output, 1 is input
 
 
-    // set up YELLOW LED1 pin (B7) as a digital output
+    /* ------------------------ set up YELLOW LED1 pin (B7) as a digital output ------------------------- */
     TRISBbits.TRISB7 = 0;       // 0 is output, 1 is input
     LATBbits.LATB7 = 0;
 
 
-    // set up GREEN LED2 (B15) to OC1 using Timer2 at 1kHz
+    /* ----------------------- set up GREEN LED2 (B15) to OC1 using Timer2 at 1kHz ---------------------- */
     RPB15Rbits.RPB15R = 0b0101;     // set B15 to OC1
 
     OC1CONbits.OCTSEL = 0;   // Select Timer2 for comparison
@@ -83,21 +85,22 @@ int main() {
     OC1CONbits.ON = 1;       // turn on OC1
 
 
-    // set up a potentiometer and read the output voltage on some analog input pin, AN0 as A0
+    /* ----- set up a potentiometer and read the output voltage on some analog input pin, AN0 as A0 ----- */
     ANSELAbits.ANSA0 = 1;       // 0 for digital, 1 for analog
     AD1CON3bits.ADCS = 3;       // ADC Conversion Clock Select bit
     AD1CHSbits.CH0SA = 0;       // Channel 0 positive input is AN0 (0)
     AD1CON1bits.ADON = 1;       // ADC module is operating (1)
 
 
+		// reset CP0 count to 0 before entering infinite while loop
     _CP0_SET_COUNT(0);
 
     while (1) {
         //Toggle LED1 every 1/2 second
-	if (_CP0_GET_COUNT() > 10000000) {
-            LATBINV = 0x80;
-            _CP0_SET_COUNT(0);
-	}
+				if (_CP0_GET_COUNT() > 10000000) {
+						      LATBINV = 0x80;
+						      _CP0_SET_COUNT(0);
+				}
 
         //When USER is pushed, toggle LED1 as fast as possible
         if (!PORTBbits.RB13) {
@@ -107,13 +110,13 @@ int main() {
         //Set LED2 brightness proportional to the potentiometer voltage
         int pot_voltage = readADC();
         int brightness = ((int) (((float)pot_voltage)*20000/1024) );
-        OC1RS = brightness;
-
-        //Set LED2 frequency to 1kHz using Timer 2 and verify with the nScope or Tek scope
-        
+        OC1RS = brightness;      
     }
 }
 
+
+
+// Helper function to read ADC value from any pin
 int readADC(void) {
     int elapsed = 0;
     int finishtime = 0;
