@@ -6,8 +6,8 @@ Josh Marino
 
 
 #### Table of Contents ####
-[Homework #1](#hw1)
-[Homework #2](#hw2)
+1. [Homework #1](#hw1)
+2. [Homework #2](#hw2)
 
 
 #### Homework #1 <a name="hw1"></a>
