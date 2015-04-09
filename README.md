@@ -8,6 +8,7 @@ Josh Marino
 #### Table of Contents ####
 1. [Homework #1](#hw1)
 2. [Homework #2](#hw2)
+2. [Homework #3](#hw3)
 
 
 #### Homework #1 <a name="hw1"></a>
@@ -27,3 +28,7 @@ Our second homework assignment involved created an EAGLE schematic for our proto
 3. 2-lead push button (Digikey P8072SCT-ND)
 
 Last, the chips were added to the schematic, and components were connected together with electrical connections.
+
+
+#### Homework #3 <a name="hw3"></a>
+The third homework assignment created a board layout from the EAGLE schematic for our protoboard. After the components were placed, connections were added for wires. Once everything was wired and connected, gerber files were generated and double-checked using mayhewlabs 3d gerber viewer.
