@@ -8,7 +8,8 @@ Josh Marino
 #### Table of Contents ####
 1. [Homework #1](#hw1)
 2. [Homework #2](#hw2)
-2. [Homework #3](#hw3)
+3. [Homework #3](#hw3)
+4. [Homework #4](#hw4)
 
 
 #### Homework #1 <a name="hw1"></a>
@@ -32,3 +33,9 @@ Last, the chips were added to the schematic, and components were connected toget
 
 #### Homework #3 <a name="hw3"></a>
 The third homework assignment created a board layout from the EAGLE schematic for our protoboard. After the components were placed, connections were added for wires. Once everything was wired and connected, gerber files were generated and double-checked using mayhewlabs 3d gerber viewer.
+
+
+#### Homework #4 <a name="hw4"></a>
+The fourth homework assignment was interfacing with the (SSD1306 128x64 I2C OLED display)[https://www.adafruit.com/products/326]. We had to write code for a driver that would show text on the display screen. This was primarily done using display_pixel_set() and draw_display() in which each pixel was set to either 0 or 1, and only appeared on the display after calling draw_display().
+
+![test_display](hw4/IMG_0925.JPG)
