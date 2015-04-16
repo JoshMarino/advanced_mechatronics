@@ -45,4 +45,4 @@ The fourth homework assignment was interfacing with the (SSD1306 128x64 I2C OLED
 #### Homework #5 <a name="hw5"></a>
 The fifth homework assignment was interfacing with the (LSM303D accelerometer)[https://www.pololu.com/product/2127]. SPI communication was used to obtain the accelerometer, magnetometer, and temperature sensor readings. We then used the display from HW #4 display bars extending from the center of the OLED display, with a length proportional to the X and Y acceleration due to gravity.
 
-![test_display](hw4/acceleration_values.JPG)
+![test_display](hw5/acceleration_values.JPG)
