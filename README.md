@@ -10,6 +10,7 @@ Josh Marino
 2. [Homework #2](#hw2)
 3. [Homework #3](#hw3)
 4. [Homework #4](#hw4)
+5. [Homework #5](#hw5)
 
 
 #### Homework #1 <a name="hw1"></a>
@@ -39,3 +40,9 @@ The third homework assignment created a board layout from the EAGLE schematic fo
 The fourth homework assignment was interfacing with the (SSD1306 128x64 I2C OLED display)[https://www.adafruit.com/products/326]. We had to write code for a driver that would show text on the display screen. This was primarily done using display_pixel_set() and draw_display() in which each pixel was set to either 0 or 1, and only appeared on the display after calling draw_display().
 
 ![test_display](hw4/IMG_0925.JPG)
+
+
+#### Homework #5 <a name="hw5"></a>
+The fifth homework assignment was interfacing with the (LSM303D accelerometer)[https://www.pololu.com/product/2127]. SPI communication was used to obtain the accelerometer, magnetometer, and temperature sensor readings. We then used the display from HW #4 display bars extending from the center of the OLED display, with a length proportional to the X and Y acceleration due to gravity.
+
+![test_display](hw4/acceleration_values.JPG)
