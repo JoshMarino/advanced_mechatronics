@@ -9,7 +9,7 @@
 // do not use pin 21 or 22
 
 
-#define CS LATBbits.LATB5 // replace x with some digital pin
+#define CS LATBbits.LATB4 // replace x with some digital pin
 
 // send a byte via spi and return the response
 unsigned char spi_io(unsigned char o) {
@@ -47,12 +47,23 @@ void acc_write_register(unsigned char reg, unsigned char data) {
 
 
 void acc_setup() {
-  TRISBbits.TRISB5 = 0; // set CS to output and digital if necessary
-  CS = 1;
 
-  SDI1Rbits.SDI1R = 0b0010;  // set SDI_1 to pin RPB1
+  // turn off AN10 to be able to use SCK1 pin
+  ANSELBbits.ANSB14 = 0;     // 0 for digital, 1 for analog
 
-  RPB2Rbits.RPB2R = 0b0011;   // set RPB2 to SDO_1
+  // set CS (B4) to output and digital if necessary
+  TRISBbits.TRISB4 = 0;      // 0 is output, 1 is input
+  CS = 1;                    // set CS to high, not reading/writing anything
+
+  // set SDI_1 to pin RPB5 -> SDO
+  ANSELBbits.ANSB1 = 0;      // 0 for digital, 1 for analog
+  SDI1Rbits.SDI1R = 0b0001;
+
+  // set SDO_1 to pin RPB2 -> SDA
+  ANSELBbits.ANSB2 = 0;      // 0 for digital, 1 for analog
+  RPB2Rbits.RPB2R = 0b0011;  
+
+
 
   // Setup the master Master - SPI1
   // we manually control SS as a digital output 
@@ -70,7 +81,6 @@ void acc_setup() {
  
   // set the accelerometer data rate to 1600 Hz. Do not update until we read values
   acc_write_register(CTRL1, 0xAF);
-  acc_write_register(CTRL2, 0x0);
 
   // 50 Hz magnetometer, high resolution, temperature sensor on
   acc_write_register(CTRL5, 0xF0);

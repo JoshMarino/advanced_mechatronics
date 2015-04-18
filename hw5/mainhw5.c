@@ -163,11 +163,12 @@ int main() {
 
 
 
-    // set up Vcc LED pin (A4) as digital output
-    TRISAbits.TRISA4 = 0;      // 0 is output, 1 is input
+    // set up Vcc LED pin (A1) as digital output
+    ANSELAbits.ANSA1 = 0;      // 0 for digital, 1 for analog
+    TRISAbits.TRISA1 = 0;      // 0 is output, 1 is input
 
     // delay 0.1 seconds after turning on
-    LATAbits.LATA4 = 1;
+    LATAbits.LATA1 = 1;
     _CP0_SET_COUNT(0);
     while (_CP0_GET_COUNT() < 4000000) {
         ;
@@ -183,7 +184,6 @@ int main() {
 
     // Setup SPI and initialize accelerometer
     acc_setup();
-
 
     // Declaration of local variables to store accelerometer, magnetometer, and temperature readings
     short accels[3]; // accelerations for the 3 axes
@@ -206,20 +206,25 @@ int main() {
         acc_read_register(TEMP_OUT_L, (unsigned char *) &temp, 2);
 
 
+        // Clear the display
+        display_clear();
 
         // Create a message to be written on the display
         char message[25];
 
 
+//        sprintf(message,"%d, %d, %d", accels[0],accels[1],accels[2]);
+
+
         // Create lines for x-direction acceleration values
         sprintf(message,"");
-        if (accels[0] >= 5) {
+        if (accels[0] >= 5000) {
             sprintf(message,"==");
         }
-        if (accels[0] >= 10) {
+        if (accels[0] >= 10000) {
             sprintf(message,"===");
         }
-        if (accels[0] >= 15) {
+        if (accels[0] >= 15000) {
             sprintf(message,"====");
         }
 
@@ -248,13 +253,13 @@ int main() {
 
         // Create lines for y-direction acceleration values
         sprintf(message,"");
-        if (accels[1] >= 5) {
+        if (accels[1] >= 5000) {
             sprintf(message,"=");
         }
-        if (accels[1] >= 10) {
+        if (accels[1] >= 10000) {
             sprintf(message,"==");
         }
-        if (accels[1] >= 15) {
+        if (accels[1] >= 15000) {
             sprintf(message,"===");
         }
 
