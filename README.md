@@ -11,6 +11,7 @@ Josh Marino
 3. [Homework #3](#hw3)
 4. [Homework #4](#hw4)
 5. [Homework #5](#hw5)
+5. [Homework #6](#hw6)
 
 
 #### Homework #1 <a name="hw1"></a>
@@ -46,3 +47,7 @@ The fourth homework assignment was interfacing with the (SSD1306 128x64 I2C OLED
 The fifth homework assignment was interfacing with the (LSM303D accelerometer)[https://www.pololu.com/product/2127]. SPI communication was used to obtain the accelerometer, magnetometer, and temperature sensor readings. We then used the display from HW #4 display bars extending from the center of the OLED display, with a length proportional to the X and Y acceleration due to gravity.
 
 ![test_display](hw5/acceleration_values.JPG)
+
+
+#### Homework #6 <a name="hw6"></a>
+The sixth homework assignment was to get the Harmony project "blinky_leds" working on our board.
