@@ -11,7 +11,8 @@ Josh Marino
 3. [Homework #3](#hw3)
 4. [Homework #4](#hw4)
 5. [Homework #5](#hw5)
-5. [Homework #6](#hw6)
+6. [Homework #6](#hw6)
+7. [Homework #7](#hw7)
 
 
 #### Homework #1 <a name="hw1"></a>
@@ -51,3 +52,7 @@ The fifth homework assignment was interfacing with the (LSM303D accelerometer)[h
 
 #### Homework #6 <a name="hw6"></a>
 The sixth homework assignment was to get the Harmony project "blinky_leds" working on our board.
+
+
+#### Homework #7 <a name="hw7"></a>
+The seventh homework assignment was to get the Harmony project "hid_mouse" working on our board. This interfaced with our USB breakout board and PIC32, while creating a circle for a path for a mouse. However, we modified the x and y positions of the mouse to interface with the accelerometer values.
