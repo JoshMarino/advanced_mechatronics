@@ -13,6 +13,7 @@ Josh Marino
 5. [Homework #5](#hw5)
 6. [Homework #6](#hw6)
 7. [Homework #7](#hw7)
+8. [Homework #8](#hw8)
 
 
 #### Homework #1 <a name="hw1"></a>
@@ -56,3 +57,9 @@ The sixth homework assignment was to get the Harmony project "blinky_leds" worki
 
 #### Homework #7 <a name="hw7"></a>
 The seventh homework assignment was to get the Harmony project "hid_mouse" working on our board. This interfaced with our USB breakout board and PIC32, while creating a circle for a path for a mouse. However, we modified the x and y positions of the mouse to interface with the accelerometer values.
+
+
+#### Homework #8 <a name="hw8"></a>
+Get the hid_basic Harmony example to compile with the PIC32MX250F128B. Setup the LEDs on your board to tell you the USB state (used in void APP_USBDeviceEventHandler). Follow the instructions on the Generic HID page to get the HIDAPI to work with the Harmony example. Every time you run hidtest, the PIC should toggle some LEDs and return the state of the button.
+
+Change the code to complete the following task: When the computer program runs, the user enters a string and a row number, the computer sends the data to the PIC, and the PIC displays the string on the OLED display on the correct row. After displaying the string, the PIC samples the accelerometer x, y, and z data at 100Hz and sends it to the computer. The computer saves the data into a text file with data in 3 space-separated columns.
