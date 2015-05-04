@@ -14,6 +14,7 @@ Josh Marino
 6. [Homework #6](#hw6)
 7. [Homework #7](#hw7)
 8. [Homework #8](#hw8)
+9. [Homework #9](#hw9)
 
 
 #### Homework #1 <a name="hw1"></a>
@@ -63,3 +64,10 @@ The seventh homework assignment was to get the Harmony project "hid_mouse" worki
 Get the hid_basic Harmony example to compile with the PIC32MX250F128B. Setup the LEDs on your board to tell you the USB state (used in void APP_USBDeviceEventHandler). Follow the instructions on the Generic HID page to get the HIDAPI to work with the Harmony example. Every time you run hidtest, the PIC should toggle some LEDs and return the state of the button.
 
 Change the code to complete the following task: When the computer program runs, the user enters a string and a row number, the computer sends the data to the PIC, and the PIC displays the string on the OLED display on the correct row. After displaying the string, the PIC samples the accelerometer x, y, and z data at 100Hz and sends it to the computer. The computer saves the data into a text file with data in 3 space-separated columns.
+
+
+#### Homework #9 <a name="hw9"></a>
+Design a box to lasercut out of 1/8" thick plywood. Use a tabbed design, with t-slots for 6-32 screws and nuts. The box should have 4 parts (one of them flexible) with an open top. Also, design a wheel to 3D print on one of the printers in the mechatronics lab. The wheel should fit a 2" silicone O-ring tire, McMaster part number 9396K83. The wheel should press fit onto a D-shape motor output shaft, 3mm in diameter, 2.5mm from edge to flat.
+
+![test_display](hw9/assembly.png)
+![test_display](hw9/wheel.png)
