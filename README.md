@@ -15,6 +15,8 @@ Josh Marino
 7. [Homework #7](#hw7)
 8. [Homework #8](#hw8)
 9. [Homework #9](#hw9)
+10. [Homework #10](#hw10)
+11. [Homework #11](#hw11)
 
 
 #### Homework #1 <a name="hw1"></a>
@@ -71,3 +73,15 @@ Design a box to lasercut out of 1/8" thick plywood. Use a tabbed design, with t-
 
 ![test_display](hw9/assembly.png)
 ![test_display](hw9/wheel.png)
+
+
+#### Homework #10 <a name="hw10"></a>
+Test the Hello World code built into Android Studio. Follow the instructions at the Android Developer page to make your first app. Go through "Starting Another Activity."
+
+
+#### Homework #11 <a name="hw11"></a>
+Edit HW #8 to send only the Z acceleration data at 500Hz for 20 seconds. Take data from the accelerometer while shaking the board up and down at 1Hz. Plot the data in MATLAB, and perform an FFT. Verify that there is a spike at 1Hz.
+
+Create a MAF to smooth the data using a 5 element FIFO. Send the filtered acceleration back to the computer along with the unfiltered. Plot both and perform an FFT on both, and note how well the MAF worked.
+
+Pick a low-pass frequency that would remove the noise but keep the 1Hz shaking. Use MATLAB to design FIR coefficients to reduce noise above that frequency. Use enough coefficients to avoid frequency ripple, but no more than 12. Implement the FIR, and send the filtered data back to the computer with the unfiltered and MAF filtered data. Plot vs time and as an FFT in MATLAB.
