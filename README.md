@@ -17,6 +17,8 @@ Josh Marino
 9. [Homework #9](#hw9)
 10. [Homework #10](#hw10)
 11. [Homework #11](#hw11)
+12. [Homework #14](#hw14)
+13. [Tech Cup](#tech_cup)
 
 
 #### Homework #1 <a name="hw1"></a>
@@ -85,3 +87,14 @@ Edit HW #8 to send only the Z acceleration data at 500Hz for 20 seconds. Take da
 Create a MAF to smooth the data using a 5 element FIFO. Send the filtered acceleration back to the computer along with the unfiltered. Plot both and perform an FFT on both, and note how well the MAF worked.
 
 Pick a low-pass frequency that would remove the noise but keep the 1Hz shaking. Use MATLAB to design FIR coefficients to reduce noise above that frequency. Use enough coefficients to avoid frequency ripple, but no more than 12. Implement the FIR, and send the filtered data back to the computer with the unfiltered and MAF filtered data. Plot vs time and as an FFT in MATLAB.
+
+
+#### Homework #14 <a name="hw14"></a>
+Robot CAD files for completing a lap while following a line.
+![test_display](hw14/car_assembly.png)
+
+
+#### Tech Cup <a name="tech_cup"></a>
+In order to complete a lap for the Tech Cup, an app needed to be created for the Android phone
+1. Android app consists of communication over CDC serial port from Android phone to PIC, as well as image processing of the camera stream to find the center of mass (COM) of a line.
+2. PIC code receives the COM from CDC serial port over USB and tells the motors to operate accordingly.
