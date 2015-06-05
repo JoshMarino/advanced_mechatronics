@@ -91,10 +91,12 @@ Pick a low-pass frequency that would remove the noise but keep the 1Hz shaking. 
 
 #### Homework #14 <a name="hw14"></a>
 Robot CAD files for completing a lap while following a line.
+
 ![test_display](hw14/car_assembly.png)
 
 
 #### Tech Cup <a name="tech_cup"></a>
-In order to complete a lap for the Tech Cup, an app needed to be created for the Android phone
-1. Android app consists of communication over CDC serial port from Android phone to PIC, as well as image processing of the camera stream to find the center of mass (COM) of a line.
-2. PIC code receives the COM from CDC serial port over USB and tells the motors to operate accordingly.
+In order to complete a lap for the Tech Cup, an app needed to be created for the Android phone and code had to be written for motor operation: 
+
+1. Android app consists of communication over CDC serial port from Android phone to PIC, as well as image processing of the camera stream to find the center of mass (COM) of a line
+2. PIC code receives the COM from CDC serial port over USB and tells the motors to operate accordingly
